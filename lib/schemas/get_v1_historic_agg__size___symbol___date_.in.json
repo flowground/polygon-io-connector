@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "size": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "second",
+                "minute"
+            ]
+        },
+        "symbol": {
+            "required": true,
+            "type": "string"
+        },
+        "date": {
+            "required": true,
+            "type": "string",
+            "format": "date"
+        },
+        "offset": {
+            "required": false,
+            "type": "integer"
+        },
+        "limit": {
+            "required": false,
+            "type": "integer",
+            "default": 100
+        }
+    }
+}

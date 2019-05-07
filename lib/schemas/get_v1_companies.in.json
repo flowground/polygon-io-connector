@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "sort": {
+            "required": false,
+            "type": "string"
+        },
+        "perpage": {
+            "required": false,
+            "type": "number"
+        },
+        "page": {
+            "required": false,
+            "type": "number",
+            "default": 1
+        }
+    }
+}

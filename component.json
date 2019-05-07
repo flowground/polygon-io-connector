@@ -1,0 +1,208 @@
+{
+    "title": "Polygon",
+    "description": "The future of fintech.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/polygon.io/1.0.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.polygon.io/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "apiKey": {
+                "label": "apiKey (apiKey)",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "get_v1_companies": {
+            "main": "./lib/actions/get_v1_companies.js",
+            "title": "Available Companies",
+            "description": "Get a list of the traded companies that polygon.io streams. Company includes some details about the company which we hope to add more to soon.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v1_companies.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v1_currencies": {
+            "main": "./lib/actions/get_v1_currencies.js",
+            "title": "Available Currencies",
+            "description": "Get a list of the currencies that polygon.io streams.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v1_currencies.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v1_historic_agg__size___symbol___date_": {
+            "main": "./lib/actions/get_v1_historic_agg__size___symbol___date_.js",
+            "title": "Historic Aggregates",
+            "description": "Get historic aggregations for a symbol.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v1_historic_agg__size___symbol___date_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v1_historic_forex__from___to___date_": {
+            "main": "./lib/actions/get_v1_historic_forex__from___to___date_.js",
+            "title": "Historic Forex Ticks",
+            "description": "Get historic ticks for a currency pair. Example for **USD/JPY** the from would be **USD** and to would be **JPY**. The date formatted like **2017-6-22**\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v1_historic_forex__from___to___date_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v1_historic_quotes__symbol___date_": {
+            "main": "./lib/actions/get_v1_historic_quotes__symbol___date_.js",
+            "title": "Historic Quotes",
+            "description": "Get historic quotes for a symbol.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v1_historic_quotes__symbol___date_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v1_historic_trades__symbol___date_": {
+            "main": "./lib/actions/get_v1_historic_trades__symbol___date_.js",
+            "title": "Historic Trades",
+            "description": "Get historic trades for a symbol.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v1_historic_trades__symbol___date_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v1_last_currencies__from___to_": {
+            "main": "./lib/actions/get_v1_last_currencies__from___to_.js",
+            "title": "Last Trade for a Currency Pair",
+            "description": "Get Last Trade Tick for a Currency Pair.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v1_last_currencies__from___to_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v1_last_stocks__symbol_": {
+            "main": "./lib/actions/get_v1_last_stocks__symbol_.js",
+            "title": "Last Trade for a Symbol",
+            "description": "Get the last trade for a given stock.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v1_last_stocks__symbol_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v1_last_quote_currencies__from___to_": {
+            "main": "./lib/actions/get_v1_last_quote_currencies__from___to_.js",
+            "title": "Last Quote for a Currency Pair",
+            "description": "Get Last Quote Tick for a Currency Pair.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v1_last_quote_currencies__from___to_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v1_last_quote_stocks__symbol_": {
+            "main": "./lib/actions/get_v1_last_quote_stocks__symbol_.js",
+            "title": "Last Quote for a Symbol",
+            "description": "Get the last quote tick for a given stock.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v1_last_quote_stocks__symbol_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
